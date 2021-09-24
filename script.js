@@ -26,7 +26,7 @@ function removeTodo(id) {
     const todo = todos[i];
     if (id == todo.id) {
       todos.splice(i, 1);
-      // break;
+    
     }
   }
   renderTodo();
