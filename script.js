@@ -33,7 +33,7 @@ function removeTodo(id) {
 }
 
 function doneTodo(id) {
-  for (todo of todos) {
+  for (let todo of todos) {
     if (id == todo.id) {
       todo.isDone = !todo.isDone;
     }
@@ -50,7 +50,7 @@ function renderTodo() {
         <img class="img" src="images/undraw_attached_file_re_0n9b.svg" alt="empty" />
     </div>`;
   } else {
-    for (todo of todos) {
+    for (let todo of todos) {
       let doneBtn = '';
       let doneText = '';
 
