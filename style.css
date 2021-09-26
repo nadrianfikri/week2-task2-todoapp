@@ -145,6 +145,7 @@ img {
   border-bottom: 1px solid var(--VeryDarkGrayishBlue);
 }
 .todo-name {
+  flex-grow: 1;
   font-size: 1rem;
   color: var(--LightGrayishBlue);
   padding-left: 20px;
@@ -161,18 +162,31 @@ img {
 .done .btn:hover img {
   opacity: 1;
 }
-
-.delete {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
+/* undo */
+.undo img {
+  filter: invert(100%) contrast(50%);
+}
+.undo .btn {
+  border: none;
+  opacity: 0;
+}
+/* delete */
+.delete,
+.undo {
+  width: 50px;
 }
 .delete .btn {
   border: none;
   opacity: 0;
 }
+.delete img {
+  filter: invert(100%);
+}
 .todo:hover .delete .btn {
+  opacity: 1;
+}
+
+.todo:hover .undo .btn {
   opacity: 1;
 }
 /* AFTER SUBMIT */
@@ -185,9 +199,10 @@ img {
   opacity: 1;
   background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
-/* * {
-  border: 1px solid blue;
-} */
+.display {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   body {
     background-image: url(images/bg-mobile-dark.jpg);

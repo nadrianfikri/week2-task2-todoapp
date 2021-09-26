@@ -35,7 +35,15 @@ function removeTodo(id) {
 function doneTodo(id) {
   for (let todo of todos) {
     if (id == todo.id) {
-      todo.isDone = !todo.isDone;
+      todo.isDone = true;
+    }
+  }
+  renderTodo();
+}
+function undoTodo(id) {
+  for (let todo of todos) {
+    if (id == todo.id) {
+      todo.isDone = false;
     }
   }
   renderTodo();
@@ -53,10 +61,12 @@ function renderTodo() {
     for (let todo of todos) {
       let doneBtn = '';
       let doneText = '';
+      let display = 'display';
 
       if (todo.isDone) {
         doneBtn = 'done-btn';
         doneText = 'done-text';
+        display = '';
       }
 
       HTMLElements += `
@@ -65,6 +75,9 @@ function renderTodo() {
               <button class="btn ${doneBtn}" onclick="doneTodo(${todo.id})"><img src="images/icon-check.svg" alt="check-btn" /></button>
             </div>
             <p class="todo-name ${doneText}">${todo.taskName}</p>
+            <div class="wraper undo ${display}">
+              <button class="btn" onclick="undoTodo(${todo.id})"><img src="images/icon-undo.svg" alt="undo-btn" /></button>
+            </div>
             <div class="wraper delete">
               <button class="btn" onclick="removeTodo(${todo.id})"><img src="images/icon-cross.svg" alt="delete-btn" /></button>
             </div>
